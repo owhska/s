@@ -331,15 +331,6 @@ else
     success "Shell padrão alterado para $ZSH_PATH (efetivo no próximo login)."
 fi
 
-# ------------------------------------------------------------------------------
-# 6. Docker — habilitar serviço e adicionar usuário ao grupo
-# ------------------------------------------------------------------------------
-if command -v docker &>/dev/null; then
-    info "Habilitando Docker..."
-    sudo systemctl enable --now docker
-    sudo usermod -aG docker "$USER"
-    warn "Faça logout/login para que as permissões do Docker tenham efeito."
-fi
 
 # ------------------------------------------------------------------------------
 # 7. libinput-gestures — adicionar usuário ao grupo input
