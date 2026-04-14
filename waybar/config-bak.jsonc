@@ -1,0 +1,89 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 35,
+    "spacing": 5,
+
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["clock"],
+    //"modules-right": ["wireplumber", "battery", "network", "bluetooth", "tray"],
+    "modules-right": ["wireplumber", "battery","memory","bluetooth","network"],
+
+
+    "sway/workspaces": { "format": "{name}"
+    },
+
+    "clock": {
+        "format": "{:%d/%m | %H:%M}"
+    },
+
+    "wireplumber": {
+        "format": "\udb81\udd7e  {volume}%",
+        "max-volume": 100,
+        "scroll-step": 5
+    },
+
+	 //"battery": {
+	//	"states": {
+	//		// "good": 95,
+	//		"warning": 20,
+	//		"critical": 10
+	//	},
+	//	"format": "<span color='#e88939'>{icon}</span> {capacity}% ({time})",
+	//	"format-charging": "<span color='#e88939'></span> {capacity}%",
+	//	"format-plugged":  "<span color='#e88939'>{icon} </span> {capacity}% ({time})",
+	//	// "format-good": "", // An empty format will hide the module
+	//	// "format-full": "",
+	//	"format-icons": ["", "", "", "", ""]
+	//},
+
+    "battery": {
+  "states": {
+    "warning": 20,
+    "critical": 10
+  },
+
+  "format": "<span color='#e88939'>{icon}</span> {capacity}% ({time})",
+
+  "format-charging": "<span color='#e88939'></span> {capacity}%",
+
+  "format-plugged": "<span color='#e88939'></span> {capacity}%",
+
+  "format-icons": [
+    "",
+    "",
+    "",
+    "",
+    ""
+  ]
+},
+
+    "memory": {
+        "interval": 30,
+        "format": "\uf4bc  {used:0.1f}G "
+    },
+    
+    "network": {
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤮",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "tooltip-format": "{essid} ({signalStrength}%)",
+        "on-click": "kitty -e nmtui"
+    },
+    
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱",
+        "on-click": "blueman-manager"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 16
+    }
+
+
+}
+

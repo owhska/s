@@ -1,0 +1,66 @@
+* {
+  font-family: "JetBrains Mono Nerd", monospace;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background: #1e1e1e;
+  color: #d4d4d4;
+}
+
+/* REMOVE TUDO */
+#custom-start,
+#workspaces button,
+#clock,
+#wireplumber,
+#battery,
+#memory,
+#network,
+#bluetooth {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0 5px;
+  margin: 0;
+}
+
+#workspaces button {
+  color: #666666;
+  padding: 0 6px;
+  margin: 0 2px;
+  border: 1px solid transparent;
+}
+
+/* workspace ativo (quadrado branco) */
+#workspaces button.active,
+#workspaces button.focused {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+/* workspace visível */
+#workspaces button.visible {
+  color: #aaaaaa;
+}
+
+/* urgente */
+#workspaces button.urgent {
+  color: #ff5555;
+  border: 1px solid #ff5555;
+}
+
+/* hover leve */
+#workspaces button:hover {
+  color: #cccccc;
+}
+
+/* tira qualquer destaque automático */
+#clock:hover,
+#battery:hover,
+#network:hover,
+#bluetooth:hover {
+  background: transparent;
+}

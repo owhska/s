@@ -1,0 +1,20 @@
+[opener]
+image = [
+    { run = 'qimgv "$@"', orphan = true }
+]
+
+edit = [
+    { run = 'nvim "$@"', block = true }
+]
+
+pdf = [
+    { run = 'zathura "$@"', orphan = true}
+]
+
+[open]
+rules = [
+    { mime = "image/*", use = "image" },
+    { mime = "text/*", use = "edit" },
+    { mime = "application/pdf*", use = "pdf" },
+    { name = "*", use = "edit" }
+]

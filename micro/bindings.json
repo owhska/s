@@ -1,0 +1,6 @@
+{
+	"Alt-v": "command:vsplit",
+	"Alt-h": "command:hsplit",
+	"Alt-q": "command:quit",
+	"Alt-f": "command:fzf",              
+}

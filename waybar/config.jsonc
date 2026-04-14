@@ -1,0 +1,88 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 20,
+
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+
+"spacing": 15,
+
+  "modules-left": ["sway/workspaces"],
+  //"modules-center": ["sway/window"],
+  "modules-right": ["network","bluetooth","wireplumber","battery", "memory", "clock"],
+
+  "sway/workspaces": {
+    "disable-scroll": false,
+    "all-outputs": true,
+    "format": "{name}",
+    "format-icons": {
+      "1": "one",
+      "2": "two",
+      "3": "three",
+      "4": "four",
+      "5": "five",
+      "6": "six",
+      "7": "seven",
+      "8": "eight",
+      "9": "nine",
+      "10": "ten"
+    }
+  }, 
+
+  "wireplumber": {
+        "format": "\udb81\udd7e  {volume}%",
+        "max-volume": 100,
+        "scroll-step": 5
+    },
+
+  "sway/window": {
+    "format": "{title:.70}"
+  },
+
+ "network": {
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤮",
+        "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+        "tooltip-format": "{essid} ({signalStrength}%)",
+        "on-click": "foot -e nmtui"
+    },
+    
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱",
+        "on-click": "blueman-manager"
+    },
+
+  
+
+  "memory": {
+   "format": "{used:0.1f}G",
+   "interval": 3
+  },
+
+    "battery": {
+  "states": {
+    "warning": 20,
+    "critical": 10
+  },
+
+  "format": "{capacity}%  ({time})",
+
+  "format-charging": "<span color='#e88939'></span> {capacity}%",
+
+  "format-plugged": "<span color='#e88939'></span> {capacity}%",
+
+},
+
+
+  "clock": {
+    "interval": 1,
+    "format": "{:%a %I:%M %p}",
+    "format-alt": "{:%m/%d/%y %a %I:%M:%S %p}"
+  }
+}

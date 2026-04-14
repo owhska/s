@@ -1,0 +1,109 @@
+/* ============================
+   Global
+   ============================ */
+* {
+  font-family: "MS Sans Serif", "Tahoma", monospace;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+}
+
+/* ============================
+   Barra
+   ============================ */
+window#waybar {
+  background: #c0c0c0;
+  color: #000;
+}
+
+/* ============================
+   Botão START
+   ============================ */
+#custom-start {
+  padding: 2px 10px;
+  margin: 2px;
+  font-weight: bold;
+
+  background: #c0c0c0;
+  color: #000;
+
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+#custom-start:active {
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+/* ============================
+   Workspaces (janelas)
+   ============================ */
+#workspaces button {
+  padding: 2px 8px;
+  margin: 2px;
+
+  background: #c0c0c0;
+  color: #000;
+
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+#workspaces button.active {
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+/* ============================
+   Módulos da direita
+   ============================ */
+#clock,
+#wireplumber,
+#battery,
+#memory,
+#network,
+#bluetooth {
+  padding: 2px 6px;
+  margin: 2px;
+
+  background: #c0c0c0;
+  color: #000;
+
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+/* ============================
+   Clique (efeito pressionado)
+   ============================ */
+#clock:active,
+#wireplumber:active,
+#battery:active,
+#memory:active,
+#network:active,
+#bluetooth:active {
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+/* ============================
+   Tooltip (estilo antigo)
+   ============================ */
+tooltip {
+  background: #ffffe1;
+  color: #000;
+  border: 1px solid #000;
+}

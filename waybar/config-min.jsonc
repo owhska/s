@@ -1,0 +1,61 @@
+{
+    "layer": "top",
+    //"position": "bottom",
+    "position": "top",
+    "height": 26,
+    "spacing": 2,
+
+    "modules-left": ["custom/start", "sway/workspaces"],
+    "modules-center": [],
+    "modules-right": ["wireplumber", "battery", "memory", "bluetooth", "network", "clock"],
+
+    "custom/start": {
+        "format": "Start",
+        "on-click": "rofi -show drun",
+        "tooltip": false
+    },
+
+    "sway/workspaces": {
+        "format": "{name}"
+    },
+
+    "clock": {
+        "format": "{:%H:%M}"
+    },
+
+    "wireplumber": {
+        "format": "Vol {volume}%",
+        "max-volume": 100,
+        "scroll-step": 5
+    },
+
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "BAT: {capacity}%",
+        "format-charging": "⚡ {capacity}%",
+        "format-plugged": " {capacity}%"
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": "RAM {used:0.1f}G"
+    },
+
+    "network": {
+        "format-wifi": "WiFi",
+        "format-ethernet": "LAN",
+        "format-disconnected": "OFF",
+        "tooltip-format": "{essid} ({signalStrength}%)",
+        "on-click": "kitty -e nmtui"
+    },
+
+    "bluetooth": {
+        "format": "BT",
+        "format-disabled": "BT OFF",
+        "format-connected": "BT ON",
+        "on-click": "blueman-manager"
+    }
+}
