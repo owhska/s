@@ -56,7 +56,7 @@ SWAY_PKGS=(
     foot
 
     # Launcher / menus
-    rofi-wayland
+    rofi
     fuzzel
 
     # Notificações
@@ -370,6 +370,7 @@ copy_dotfiles() {
 
 copy_dotfiles sway
 copy_dotfiles waybar
+copy_dotfiles rofi
 
 # ------------------------------------------------------------------------------
 # Resumo
