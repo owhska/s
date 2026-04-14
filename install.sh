@@ -23,6 +23,25 @@ error()   { echo -e "${RED}[ERRO]${NC} $*"; exit 1; }
 [[ $EUID -eq 0 ]] && error "Não rode como root. O script usa sudo quando necessário."
 command -v pacman &>/dev/null || error "Este script requer pacman (Arch Linux / Manjaro)."
 
+# ------------------------------------------------------------------------------
+# 0.1 Configuração do Git
+# ------------------------------------------------------------------------------
+echo -e "${CYAN}Configuração do Git${NC}"
+echo -e "Deixe em branco para pular.\n"
+
+read -rp "  Nome (ex: Fulano): " GIT_NAME
+read -rp "  Email (ex: fulano@email.com): " GIT_EMAIL
+
+if [[ -n "$GIT_NAME" ]]; then
+    git config --global user.name "$GIT_NAME"
+    success "git user.name = \"$GIT_NAME\""
+fi
+if [[ -n "$GIT_EMAIL" ]]; then
+    git config --global user.email "$GIT_EMAIL"
+    success "git user.email = \"$GIT_EMAIL\""
+fi
+echo ""
+
 info "Atualizando sistema..."
 sudo pacman -Syu --noconfirm
 
@@ -143,6 +162,7 @@ CLI_PKGS=(
 
     # Git extras
     git
+    github-cli
 
     # Docker (plugin zsh)
     docker
@@ -386,4 +406,5 @@ echo -e "     • Zsh virar o shell padrão"
 echo -e "     • Grupos docker/input terem efeito"
 echo -e "  2. Rode ${YELLOW}wal -i ~/Pictures/wallBingo.png${NC} para gerar cores do pywal"
 echo -e "  3. Reinicie o Sway: ${YELLOW}swaymsg reload${NC}"
+echo -e "  4. Autentique o GitHub CLI: ${YELLOW}gh auth login${NC}"
 echo ""
