@@ -17,7 +17,13 @@ set $menu rofi -show drun
 #output * bg /home/brunes/Pictures/wall5_saturated.jpg fill
 #output * bg /home/brunes/Pictures/wall7.jpg fill
 #output * bg /home/brunes/Pictures/wall0.jpg fill 
-output * bg /home/brunes/Pictures/wallBingo.png fill
+#output * bg /home/ow/Pictures/wallBingo.png fill
+output * bg /home/ow/Pictures/wall.jpg fill
+
+exec_always {
+    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+}
 
 # --- colours ---
 set $colour1 #141c21
@@ -49,12 +55,14 @@ exec libinput-gestures-setup start
 exec mako
 # waybar
 # exec_always sh -c 'pgrep -x waybar || waybar'
-exec_always waybar
+#exec_always waybar
 exec nm-applet --indicator
 exec blueman-applet
 # Gaps & borders
-gaps inner 5
-gaps outer 5
+gaps inner 10
+gaps outer 0
+#gaps inner 0
+#gaps outer 0
 default_border pixel 2
 default_floating_border pixel 2
 
@@ -105,8 +113,11 @@ bindsym $mod+space exec ~/.config/rofi/search.sh
 bindsym $mod+tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+o exec sh -c 'pkill waybar; waybar &'
-# bindsym $mod+p exec pkill waybar
 
+bindsym --no-repeat $mod+p exec waybar
+bindsym --release $mod+p exec sleep 0.3 && pkill waybar
+
+# bindsym $mod+p exec pkill waybar
 
 floating_modifier $mod normal
 bindsym $mod+Shift+c reload

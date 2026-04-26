@@ -1,5 +1,6 @@
 {
-  "layer": "top",
+  //"layer": "top",
+  "layer": "overlay",
   "position": "top",
   "height": 20,
 
@@ -7,6 +8,7 @@
   "margin-bottom": 0,
   "margin-left": 0,
   "margin-right": 0,
+  "exclusive": false,
 
 "spacing": 15,
 
@@ -86,3 +88,4 @@
     "format-alt": "{:%m/%d/%y %a %I:%M:%S %p}"
   }
 }
+
