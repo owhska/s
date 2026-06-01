@@ -80,6 +80,9 @@ SWAY_PKGS=(
 
     # Notificações
     mako
+    
+    #Look and feel
+    lxappearance
 
     # Screenshot
     grim
@@ -383,51 +386,6 @@ copy_dotfiles sway
 copy_dotfiles waybar
 copy_dotfiles rofi
 
-# ------------------------------------------------------------------------------
-# 9. Limite de bateria via TLP (charge thresholds)
-# ------------------------------------------------------------------------------
-info "Configurando limite de carga da bateria..."
-
-yay -S --noconfirm --needed tlp
-
-# Detecta suporte nativo a thresholds no kernel
-BATTERY_DRIVER=""
-if ls /sys/class/power_supply/BAT*/charge_control_start_threshold &>/dev/null 2>&1; then
-    BATTERY_DRIVER="native"
-fi
-
-TLP_CONF="/etc/tlp.conf"
-
-# Faz backup do tlp.conf se já existir
-[[ -f "$TLP_CONF" ]] && sudo cp "$TLP_CONF" "${TLP_CONF}.bak.$(date +%s)" && \
-    warn "Backup de $TLP_CONF salvo."
-
-# Aplica os thresholds via tlp.conf
-sudo tee -a "$TLP_CONF" > /dev/null << 'TLPCONF'
-
-# ── Charge thresholds (adicionado pelo install.sh) ────────────────────────────
-# Começa a carregar em 79%, para de carregar em 80%
-START_CHARGE_THRESH_BAT0=79
-STOP_CHARGE_THRESH_BAT0=80
-START_CHARGE_THRESH_BAT1=79
-STOP_CHARGE_THRESH_BAT1=80
-TLPCONF
-
-sudo systemctl enable --now tlp
-sudo tlp start
-
-# Aplica os thresholds imediatamente via sysfs (sem precisar reiniciar)
-if [[ "$BATTERY_DRIVER" == "native" ]]; then
-    for bat in /sys/class/power_supply/BAT*; do
-        echo 79 | sudo tee "$bat/charge_control_start_threshold" > /dev/null
-        echo 80 | sudo tee "$bat/charge_control_stop_threshold"  > /dev/null
-    done
-    success "Thresholds aplicados imediatamente via sysfs."
-else
-    warn "Thresholds não aplicados via sysfs. Terão efeito após reiniciar."
-fi
-
-success "Limite de bateria configurado: carrega de 79% até 80%."
 
 # ------------------------------------------------------------------------------
 # Resumo
