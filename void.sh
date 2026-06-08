@@ -67,7 +67,7 @@ SWAY_PKGS=(
     swaylock
 
     # Waybar
-    waybar
+    Waybar
 
     # Terminal
     foot
